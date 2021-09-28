@@ -11,11 +11,13 @@ import android.view.View;
 
 public class SimpleDrawingView extends View {
 
-    private final int paintColor = Color.GREEN;
+
+
+    public  int paintColor = Color.GREEN;
     // defines paint and canvas
-    private Paint drawPaint;
+    public Paint drawPaint;
     // stores next circle
-    private Path path=new Path() ;
+    public Path path=new Path() ;
 
     public SimpleDrawingView(Context context) {
         super(context);
@@ -29,16 +31,16 @@ public class SimpleDrawingView extends View {
         setupPaint();
     }
 
-    private void setupPaint() {
+    public void setupPaint() {
         // Setup paint with color and stroke styles
+
         drawPaint = new Paint();
         drawPaint.setColor(paintColor);
-        drawPaint.setAntiAlias(true);
-        drawPaint.setDither(true);
         drawPaint.setStrokeWidth(10);
         drawPaint.setStyle(Paint.Style.STROKE);
         drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
+
     }
     @Override
     protected void onDraw(Canvas canvas) {
@@ -53,7 +55,6 @@ public class SimpleDrawingView extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 path.moveTo(pointX, pointY);
-
                 return true;
             case MotionEvent.ACTION_MOVE:
                 path.lineTo(pointX, pointY);
